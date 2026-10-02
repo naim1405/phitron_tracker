@@ -1,6 +1,8 @@
-def main():
-    print("Hello from phitron-tracker!")
+from app.config import settings
+from app.server import app
 
 
 if __name__ == "__main__":
-    main()
+    import uvicorn
+
+    uvicorn.run(app, host=settings.host, port=settings.port)
