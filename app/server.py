@@ -1,11 +1,13 @@
 from fastapi import FastAPI
 
 from app.config import settings
+from app.transactions import router as transactions_router
 from app.users import router as auth_router
 
 app = FastAPI(title=settings.app_name)
 
 app.include_router(auth_router)
+app.include_router(transactions_router)
 
 
 @app.get("/health")
